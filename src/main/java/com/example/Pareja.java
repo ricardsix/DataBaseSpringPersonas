@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Pareja
@@ -11,7 +12,9 @@ public class Pareja
     @Id
     @GeneratedValue
     private Long id;
+    @OneToOne
     private Persona p1;
+    @OneToOne
     private Persona p2;
 
     public Pareja()
