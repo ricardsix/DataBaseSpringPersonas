@@ -40,7 +40,32 @@ public class Persona {
     }
 
     @Override
-    public String toString() {
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Persona persona = (Persona) o;
+
+        if (id != null ? !id.equals(persona.id) : persona.id != null) return false;
+        if (!nombre.equals(persona.nombre)) return false;
+        if (!apellido.equals(persona.apellido)) return false;
+        return age.equals(persona.age);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + nombre.hashCode();
+        result = 31 * result + apellido.hashCode();
+        result = 31 * result + age.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString()
+    {
         return "Persona{" +
                 "id=" + id +
                 ", nombre='" + nombre +
