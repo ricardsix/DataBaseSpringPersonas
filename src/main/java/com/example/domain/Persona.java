@@ -1,4 +1,4 @@
-package com.example;
+package com.example.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,11 +29,11 @@ public class Persona {
         return nombre;
     }
 
-    public void setAge(Integer age){this.age = age;}
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public void setAge(Integer age){this.age = age;}
 
     public void setApellido(String apellido) {
         this.apellido = apellido;

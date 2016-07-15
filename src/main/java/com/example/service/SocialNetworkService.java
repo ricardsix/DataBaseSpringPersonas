@@ -1,6 +1,9 @@
-package com.example;
+package com.example.service;
 
-import org.hibernate.service.spi.InjectService;
+import com.example.domain.Pareja;
+import com.example.domain.Persona;
+import com.example.repository.ParejaRepository;
+import com.example.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +15,7 @@ public class SocialNetworkService
     @Autowired
     private PersonaRepository personaRepository;
     @Autowired
-    private  ParejaRepository parejaRepository;
+    private ParejaRepository parejaRepository;
     public void añadirPersona(Persona persona)
     {
         personaRepository.save(persona);

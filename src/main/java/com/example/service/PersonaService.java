@@ -1,6 +1,7 @@
-package com.example;
+package com.example.service;
 
-import org.hibernate.service.spi.InjectService;
+import com.example.domain.Persona;
+import com.example.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
