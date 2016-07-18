@@ -1,26 +1,23 @@
 package com.example.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
-public class Pareja
+public class Amistad
 {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Persona p1;
-    @OneToOne
+    @ManyToOne
     private Persona p2;
 
-    public Pareja()
+    public Amistad()
     {
 
     }
-    public Pareja(Persona p1, Persona p2)
+    public Amistad(Persona p1, Persona p2)
     {
         this.p1 = p1;
         this.p2 = p2;
@@ -57,28 +54,28 @@ public class Pareja
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Pareja pareja = (Pareja) o;
+        Amistad amistad = (Amistad) o;
 
-        if (!getP1().equals(pareja.getP1())) return false;
-        return getP2().equals(pareja.getP2());
-
+        if (!getId().equals(amistad.getId())) return false;
+        if (!getP1().equals(amistad.getP1())) return false;
+        return getP2().equals(amistad.getP2());
     }
+
     @Override
     public int hashCode()
     {
-        int result = getP1().hashCode();
+        int result = getId().hashCode();
+        result = 31 * result + getP1().hashCode();
         result = 31 * result + getP2().hashCode();
         return result;
     }
 
-
     @Override
-    public String toString()
-    {
-        return "Pareja{" +
+    public String toString() {
+        return "Amistad{" +
                 "id=" + id +
-                ", p1='" + p1 + '\'' +
-                ", p2='" + p2 + '\'' +
+                ", p1=" + p1 +
+                ", p2=" + p2 +
                 '}';
     }
 }
